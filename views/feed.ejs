@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/stylesheets/feed.css" rel="stylesheets">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="bg-black"> 
+  <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <a href="/profile" class="font-semibold text-xl tracking-tight">VisualVibes</a>
+    </div>
+    <div class="block lg:hidden">
+      <button id="toggleButton" class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+        </svg>
+      </button>
+    </div>
+    <div id="navLinks" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden">
+      <div class="text-sm lg:flex-grow">
+        <a href="/add" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">Create posts</a>
+        <a href="/feed" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">Feed</a>
+        <a href="/logout" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white">Logout</a>
+      </div>
+    </div>
+  </nav>
+      
+ 
+<div class="container px-3 py-4">
+  <div class="max-[900px]:columns-4 max-[600px]:columns-3 max-[430px]:columns-2 mx-auto mb-10 w-full shadow shadow-md-teal max-w-6xl columns-5 gap-4 space-y-4 pb-10 relative">
+<% posts.forEach(function(post, index) { %>
+  <div class="relative group">
+    <% if (post.image) { %>
+      <div class="mb-4 group-hover:opacity-50 transition-opacity">
+          <% if (post.image.endsWith('.mp4')) { %>
+            <video controls autoplay muted class="rounded-[10px] post-item">
+              <source src="/images/uploads/<%= post.image %>" type="video/mp4">
+            </video>
+          <% } else { %>
+            <img class="rounded-[10px] post-item" src="/images/uploads/<%= post.image %>" alt="Image">
+          <% } %>
+      </div>
+    <% } %>
+  </div>
+<% }) %>
+</div>
+</div>
+
+
+
+
+<script>
+const toggleButton = document.getElementById('toggleButton');
+const navLinks = document.getElementById('navLinks');
+
+toggleButton.addEventListener('click', () => {
+  navLinks.classList.toggle('hidden');
+});
+</script>
+
+</body>
+</html>

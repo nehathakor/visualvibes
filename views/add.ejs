@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheets" href="/stylesheets/style.css">
+</head>
+<body class="bg-black">
+  <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+      <a href="/profile" class="font-semibold text-xl tracking-tight">VisualVibes</a>
+    </div>
+    <div class="block lg:hidden">
+      <button id="toggleButton" class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+        </svg>
+      </button>
+    </div>
+    <div id="navLinks" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden">
+      <div class="text-sm lg:flex-grow">
+        <a href="/add" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">Create posts</a>
+        <a href="/feed" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">Feed</a>
+        <a href="/logout" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white">Logout</a>
+      </div>
+    </div>
+  </nav>
+  
+    <div class="mt-6 flex flex-col items-center px-4">
+        <p class="text-center text-teal-600 text-lg font-bold mb-4">Share your visuals now!</p>
+        <form class="w-full max-w-md bg-zinc-950 shadow-md rounded px-4 pt-6 pb-4 mb-2 sm:px-10 sm:pb-3" action="/upload" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label class="block text-teal-600 text-sm font-bold mb-1" for="file-upload">Upload File</label>
+            <input class="appearance-none border rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="file-upload" type="file" name="file">
+          </div>
+          <div class="mb-3">
+            <label class="block text-teal-600 text-sm font-bold mb-1" for="file-caption">File Caption</label>
+            <input class="appearance-none border rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="file-caption" type="text" name="filecaption" placeholder="Enter caption">
+          </div>
+          <div class="flex items-center justify-center">
+            <button class="focus:outline-none text-black font-medium bg-teal-600 rounded-[5px] text-sm px-4 py-1 mb-2 sm:mb-0 dark:bg-teal-600 dark:hover:bg-teal-700" type="submit">
+              Upload
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <script>
+        const toggleButton = document.getElementById('toggleButton');
+        const navLinks = document.getElementById('navLinks');
+        
+        toggleButton.addEventListener('click', () => {
+          navLinks.classList.toggle('hidden');
+        });
+        </script>
+</body>
+</html>

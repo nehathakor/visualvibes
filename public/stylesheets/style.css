@@ -1,0 +1,22 @@
+/* Set a smaller default font size for the entire website */
+body {
+    font-size: 16px; /* Adjust this value as needed */
+  }
+  
+  /* For smaller screens, decrease font size */
+  @media screen and (max-width: 768px) {
+    body {
+      font-size: 14px; /* Adjust this value for smaller screens */
+    }
+  }
+  
+  /* H1, H2, H3... Heading sizes */
+  h1 {
+    font-size: 2rem; /* Example size for H1 */
+  }
+  
+  /* Paragraph text */
+  p {
+    font-size: 1rem; /* Example size for paragraphs */
+  }
+  

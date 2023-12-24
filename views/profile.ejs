@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheets" href="/stylesheets/style.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+      import {
+        Collapse,
+        initTE,
+      } from "tw-elements";
+      initTE({ Collapse, Dropdown });
+      </script>
+</head>
+<body class="bg-black">
+
+<nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+    <a href="/profile" class="font-semibold text-xl tracking-tight">VisualVibes</a>
+  </div>
+  <div class="block lg:hidden">
+    <button id="toggleButton" class="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <title>Menu</title>
+        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+      </svg>
+    </button>
+  </div>
+  <div id="navLinks" class="w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden">
+    <div class="text-sm lg:flex-grow">
+      <a href="/add" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">Create posts</a>
+      <a href="/feed" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white mr-4">Feed</a>
+      <a href="/logout" class="block mt-4 lg:inline-block lg:mt-0 text-gray-200 hover:text-white">Logout</a>
+    </div>
+  </div>
+</nav>
+
+
+  <form id="uploadform" hidden action="/fileupload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image">
+  </form>
+
+  <div class="rounded-primary relative mx-auto flex h-full w-full max-w-full flex-col bg-cover bg-clip-border p-[6px] ">
+    <div class="relative mt-1 flex flex-col items-center rounded-[10px] w-full p-4 bg-cover bg-zinc-950">
+      <div class="relative flex h-16 w-16 md:h-[88px] md:w-[88px]  items-center justify-center rounded-full border-[4px] border-teal-600 bg-gray-950">
+        <img class="h-full w-full rounded-full object-cover" src="/images/uploads/<%= user.dp ||'default.png' %>" alt="" />
+        <span id="uploadicon" class="absolute bottom-0 right-0 h-5 w-6 md:h-[28px] md:w-[28px] flex items-center justify-center rounded-full bg-black text-teal-600">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </span>
+      </div>
+      <div class="mt-5 flex flex-col items-center">
+        <h2 class="text-teal-600 font-bold"><%=user.fullname%></h2>
+        <h3 class="text-neutral-200 ">@<%=user.username%></h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-screen-xl mx-2 p-5 sm:p-10 md:p-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      <div class="rounded-lg overflow-hidden shadow-sm shadow-teal-300 flex flex-col">
+        <a href="#">
+          <div class="relative">
+            <% if ((user.posts && user.posts.length > 0) && user.posts[0].image) { %>
+              <img class="w-full object-cover h-full" src="/images/uploads/<%= user?.posts[0]?.image %>" alt="User's post image">
+              <div class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></div>
+            <% } else { %>
+              <img class="w-full object-cover h-full" src="/images/uploads/defaultpost.png" alt="Default Image">
+            <% } %>
+          </div>
+        </a>
+        <div class="px-5 py-3 mb-auto">
+          <a href="/show" class="font-medium text-sm inline-block text-indigo-600 underline inline-block mb-2">Your Uploaded pins</a>
+          <% if (user.posts && user.posts.length > 0) { %>
+            <p class="text-gray-500 text-sm">
+              <%= user.posts.length %> Pins
+            </p>
+          <% } else { %>
+           
+            <p class="text-gray-500 text-sm">No pins yet.</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<script>
+  document.querySelector("#uploadicon").addEventListener("click", function(){
+      document.querySelector("#uploadform input").click();
+  })
+
+  document.querySelector("#uploadform input").addEventListener("change",function(){
+    document.querySelector("#uploadform").submit();
+  })
+
+const toggleButton = document.getElementById('toggleButton');
+const navLinks = document.getElementById('navLinks');
+
+toggleButton.addEventListener('click', () => {
+  navLinks.classList.toggle('hidden');
+});
+
+</script>
+
+  </body>
+</html>
