@@ -65,5 +65,4 @@ This website is set up to run on a local server. For development or testing purp
 
 For any questions or feedback, feel free to reach out:
 - Email: neha.k.thakor@gmail.com
-- Twitter: [ntthere_](https://twitter.com/ntthere_) (It's my burner account.)
 
