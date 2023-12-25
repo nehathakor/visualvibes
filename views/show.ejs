@@ -55,7 +55,7 @@
 
 
   <div class="container px-3 py-4">
-    <div class="max-[900px]:columns-4 max-[600px]:columns-3 max-[300px]:columns-2 mx-auto mb-10 w-full shadow shadow-md-teal max-w-6xl columns-5 gap-4 space-y-4 pb-10 relative">
+    <div class="max-[900px]:columns-4 max-[600px]:columns-3 max-[430px]:columns-2 mx-auto mb-10 w-full shadow shadow-md-teal max-w-6xl columns-5 gap-4 space-y-4 pb-10 relative">
       <% user.posts.forEach(function(post){ %>
         <div class="relative group">
           <% if (post.image) { %>
@@ -77,6 +77,21 @@
   
   
   <script>
+      document.querySelector("#uploadicon").addEventListener("click", function(){
+      document.querySelector("#uploadform input").click();
+    })
+
+    document.querySelector("#uploadform input").addEventListener("change",function(){
+    document.querySelector("#uploadform").submit();
+    })
+
+    const toggleButton = document.getElementById('toggleButton');
+    const navLinks = document.getElementById('navLinks');
+
+   toggleButton.addEventListener('click', () => {
+   navLinks.classList.toggle('hidden');
+   });
+
     document.querySelector("#uploadicon").addEventListener("click", function(){
         document.querySelector("#uploadform input").click();
     })

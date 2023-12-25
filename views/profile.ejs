@@ -73,14 +73,14 @@
           </div>
         </a>
         <div class="px-5 py-3 mb-auto">
-          <a href="/show" class="font-medium text-sm inline-block text-indigo-600 underline inline-block mb-2">Your Uploaded pins</a>
+          <a href="/show" class="font-medium text-sm inline-block text-teal-600 underline inline-block mb-2">Your Uploaded pins</a>
           <% if (user.posts && user.posts.length > 0) { %>
             <p class="text-gray-500 text-sm">
               <%= user.posts.length %> Pins
             </p>
           <% } else { %>
            
-            <p class="text-gray-500 text-sm">No pins yet.</p>
+            <p class="text-gray-400 text-sm">No pins yet.</p>
           <% } %>
         </div>
       </div>
