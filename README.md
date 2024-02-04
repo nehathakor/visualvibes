@@ -56,11 +56,6 @@ To run this website locally:
 <img src="https://github.com/nehathakor/visualvibes/assets/130857613/f676fae4-f3ed-4115-b689-b70149f88cb7" width="130" height="260">
 <img src="https://github.com/nehathakor/visualvibes/assets/130857613/ec36693d-83c1-4281-9f64-ea50150e4a23" width="130" height="260">
 
-
-## Note
-
-This website is set up to run on a local server. For development or testing purposes, follow the instructions above. Updates and enhancements are planned for the future. If you encounter any issues or have questions, feel free to reach out.
-
 ## Contact
 
 For any questions or feedback, feel free to reach out:
