@@ -42,6 +42,12 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+const PORT = 4000
+
+app.listen(PORT, () => {
+  console.log(`API listening on PORT ${PORT} `)
+})
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
