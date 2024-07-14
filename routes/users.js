@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const plm = require('passport-local-mongoose');
 
-mongoose.connect("mongodb://0.0.0.0/visualvibe");
-
 const userSchema = new mongoose.Schema({
   username: {
     type: String,

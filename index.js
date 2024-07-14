@@ -1,8 +1,12 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const dotenv = require("dotenv").config();
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const connectDb = require("./config/connectionDb");
+connectDb();
+
 const expressSession = require("express-session");
 const flash = require("connect-flash");
 
