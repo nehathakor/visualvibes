@@ -7,9 +7,25 @@
       }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "index.js" 
-      }
+    {
+      "src": "/login",
+      "dest": "/login"
+    },
+    {
+      "src": "/register",
+      "dest": "/register"
+    },
+    {
+      "src": "/profile",
+      "dest": "/profile"
+    },
+    {
+      "src": "/feed",
+      "dest": "/feed"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
     ]
   }
