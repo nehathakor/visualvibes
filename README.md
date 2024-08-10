@@ -1,6 +1,6 @@
 # VisualVibes
 
-Welcome to VisualVibes, a platform for users to create accounts and share aesthetic visuals. This basic project uses Tailwind CSS and JavaScript for the frontend, Node.js with Express for the backend, MongoDB for the database, and EJS as the template engine.
+Welcome to VisualVibes, a platform for users to create accounts and share aesthetic visuals. This basic project uses Tailwind CSS and JavaScript for the frontend, Node.js with Express for the backend, MongoDB for the database, and EJS as the template engine. 
 
 ## Installation
 
